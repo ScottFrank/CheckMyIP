@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Check My IP";
+}
+
+<h2 id="message">Checking Ip...</h2>
+
+<script src="~/Scripts/IPTestCaller.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var check = new ipChecker({
+            target: "//checkmyip.quarterwit.com/home/CheckIP/",
+            onReady: function (result) {
+                var answer = "Your IP is: " + result.client_ip;
+                $("#message").text(answer);
+            }
+        });
+        check.initialize();
+    })
+</script>
